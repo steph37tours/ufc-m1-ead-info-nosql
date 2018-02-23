@@ -21,14 +21,14 @@ public class CassandraInjector implements SensorDataInjector {
     public CassandraInjector(Session session) {
         this.session = session;
         this.stmt = this.session.prepare("" +
-                "INSERT INTO ufcead.sensor_data(sensor, week, at, temperature, hygrometry) VALUES (?, ?, ?, ?, ?)");
+                "INSERT INTO ufcead.sensor_data(sensor, week, at, temperature, hygrometry, hygrometry2) VALUES (?, ?, ?, ?, ?, ?)");
     }
 
     @Override
     public void inject(SensorData data) throws InjectorException {
         String week = Helpers.formattedWeek(data.getAt());
         this.session.execute(new BoundStatement(this.stmt).bind(
-            data.getName(), week, dateFromLocalDateTime(data.getAt()), data.getTemperature(), data.getHygrometry()
+            data.getName(), week, dateFromLocalDateTime(data.getAt()), data.getTemperature(), data.getHygrometry(), data.getHygrometry2()
         ));
     }
 

@@ -44,6 +44,7 @@ public class SensorDataRandom {
         return SensorData.forSensor(this.nextSensor())
                 .withTemperature(this.nextTemperature())
                 .withHygrometry(this.nextHygrometry())
+                .withHygrometry2(this.nextHygrometry2())
                 .withAt(this.nextAt())
                 .build();
     }
@@ -59,6 +60,11 @@ public class SensorDataRandom {
 
     private Double nextHygrometry() {
         return this.random.nextDoubleInRange(this.minHygrometry, this.maxHygrometry);
+    }
+
+    private Double nextHygrometry2() {
+        return 5.0;
+        //return this.random.nextDoubleInRange(this.minHygrometry, this.maxHygrometry);
     }
 
     private LocalDateTime nextAt() {

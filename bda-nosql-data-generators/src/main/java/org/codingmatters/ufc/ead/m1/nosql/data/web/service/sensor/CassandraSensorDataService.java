@@ -37,6 +37,7 @@ public class CassandraSensorDataService implements SensorDataService {
                     .withAt(LocalDateTime.ofInstant(result.get("at", Date.class).toInstant(), ZoneId.systemDefault()))
                     .withTemperature(result.get("temperature", Double.class))
                     .withHygrometry(result.get("hygrometry", Double.class))
+                    .withHygrometry2(result.get("hygrometry2", Double.class))
                     .build());
         }
 

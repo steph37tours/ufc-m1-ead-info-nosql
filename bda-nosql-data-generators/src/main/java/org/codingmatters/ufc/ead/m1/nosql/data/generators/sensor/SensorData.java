@@ -17,12 +17,14 @@ public class SensorData {
     private final LocalDateTime at;
     private final Double temperature;
     private final Double hygrometry;
+    private final Double hygrometry2;
 
-    private SensorData(String name, LocalDateTime at, Double temperature, Double hygrometry) {
+    private SensorData(String name, LocalDateTime at, Double temperature, Double hygrometry, Double hygrometry2) {
         this.name = name;
         this.at = at;
         this.temperature = temperature;
         this.hygrometry = hygrometry;
+        this.hygrometry2 = hygrometry2;
     }
 
     public String getName() {
@@ -41,12 +43,17 @@ public class SensorData {
         return hygrometry;
     }
 
+    public Double getHygrometry2() {
+        return hygrometry2;
+    }
+
     static public class Builder {
 
         private String name;
         private LocalDateTime at;
         private Double temperature;
         private Double hygrometry;
+        private Double hygrometry2;
 
         public Builder() {}
 
@@ -70,8 +77,13 @@ public class SensorData {
             return this;
         }
 
+        public Builder withHygrometry2(Double hygrometry2) {
+            this.hygrometry2 = hygrometry2;
+            return this;
+        }
+
         public SensorData build() {
-            return new SensorData(this.name, this.at, this.temperature, this.hygrometry);
+            return new SensorData(this.name, this.at, this.temperature, this.hygrometry, this.hygrometry2);
         }
 
         public void setName(String name) {
@@ -89,6 +101,10 @@ public class SensorData {
         public void setHygrometry(Double hygrometry) {
             this.hygrometry = hygrometry;
         }
+
+        public void setHygrometry2(Double hygrometry2) {
+            this.hygrometry2 = hygrometry2;
+        }
     }
 
     @Override
@@ -101,6 +117,7 @@ public class SensorData {
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
         if (at != null ? !at.equals(that.at) : that.at != null) return false;
         if (temperature != null ? !temperature.equals(that.temperature) : that.temperature != null) return false;
+        if (hygrometry2 != null ? hygrometry2.equals(that.hygrometry2) : that.hygrometry2 == null) return false;
         return hygrometry != null ? hygrometry.equals(that.hygrometry) : that.hygrometry == null;
 
     }
@@ -111,6 +128,7 @@ public class SensorData {
         result = 31 * result + (at != null ? at.hashCode() : 0);
         result = 31 * result + (temperature != null ? temperature.hashCode() : 0);
         result = 31 * result + (hygrometry != null ? hygrometry.hashCode() : 0);
+        result = 31 * result + (hygrometry2 != null ? hygrometry2.hashCode() : 0);
         return result;
     }
 
@@ -121,6 +139,7 @@ public class SensorData {
                 ", at=" + at +
                 ", temperature=" + temperature +
                 ", hygrometry=" + hygrometry +
+                ", hygrometry=" + hygrometry2 +
                 '}';
     }
 }

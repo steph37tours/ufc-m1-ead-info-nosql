@@ -23,6 +23,7 @@ public class CassandraSensorSampleInjector {
                 "at timestamp, " +
                 "temperature double, " +
                 "hygrometry double, " +
+                "hygrometry2 double, " +
                 "PRIMARY KEY ((sensor, week), at)" +
                 ")");
         try {

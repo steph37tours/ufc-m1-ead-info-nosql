@@ -20,6 +20,7 @@ function drawSensorChart(sensorData) {
     var labels = [];
     var temperatureData = [];
     var hygrometryData = [];
+    var hygrometryData2 = [];
 
     for(var i = 0 ; i < sensorData.data.length ; i++) {
         var at = sensorData.data[i].at;
@@ -31,6 +32,7 @@ function drawSensorChart(sensorData) {
 
         temperatureData.push(sensorData.data[i].temperature);
         hygrometryData.push(100 * sensorData.data[i].hygrometry);
+        hygrometryData2.push(sensorData.data[i].hygrometry2);
     }
 
     var ctx = document.getElementById("sensor-chart").getContext("2d");
@@ -57,6 +59,17 @@ function drawSensorChart(sensorData) {
                 pointHighlightFill: "#fff",
                 pointHighlightStroke: "rgba(151,187,205,1)",
                 data: hygrometryData
+            }
+            ,
+            {
+                label: "Hygrometry2",
+                fillColor: "rgba(151,187,205,0.2)",
+                strokeColor: "rgba(151,187,205,1)",
+                pointColor: "rgba(151,187,205,1)",
+                pointStrokeColor: "#fff",
+                pointHighlightFill: "#fff",
+                pointHighlightStroke: "rgba(151,187,205,1)",
+                data: hygrometryData2
             }
         ]
     };

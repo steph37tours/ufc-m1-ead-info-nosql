@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/bda-nosql.iml" filepath="$PROJECT_DIR$/bda-nosql.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bda-nosql-data-generators/bda-nosql-data-generators.iml" filepath="$PROJECT_DIR$/bda-nosql-data-generators/bda-nosql-data-generators.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bda-nosql-twitter/bda-nosql-twitter.iml" filepath="$PROJECT_DIR$/bda-nosql-twitter/bda-nosql-twitter.iml" />
+    </modules>
+  </component>
+</project>

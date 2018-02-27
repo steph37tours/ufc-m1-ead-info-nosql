@@ -2,6 +2,7 @@ package org.codingmatters.ufc.ead.m1.nosql.data.injectors.twitter;
 
 import com.fasterxml.jackson.core.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.codingmatters.ufc.ead.m1.nosql.data.injectors.InjectorException;
 import org.codingmatters.ufc.ead.m1.nosql.twitter.bean.Tweet;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -73,6 +74,8 @@ public class TweetSampleInjector {
                 tweet = this.next();
             } catch (InjectionException e) {
                 log.error("error injecting tweet " + tweet, e);
+            } catch (InjectorException e) {
+                e.printStackTrace();
             }
         }
     }
